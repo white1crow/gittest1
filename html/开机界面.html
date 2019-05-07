@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开机界面</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            background: #000;
+        }
+        #wrap{
+            width: 270px;
+            height:480px;
+            position: relative;
+            background: url("../img/开机界面.jpg") no-repeat 0 0;
+            background-size: 100% 100%;
+            margin:  100px auto;
+           
+        }
+        .shadow{
+            width: 90px;
+            height: 48px;
+            position: absolute;
+            /* border: 1px solid red; */
+            left: 88px;
+            top: 253px;
+            background: linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(123,255,255,.575) 5px,rgba(123,255,255,.5) 20px,rgba(255,255,255,0) 23px,rgba(255,255,255,0) 178px) no-repeat 0px 0px;  
+            transition: 5s;
+        }     
+    </style>
+</head>
+<body>
+      <div id="wrap">
+          <div class="shadow"></div>    
+      </div>
+
+      <script>
+          window.onload = function(){
+          var oShadow = document.querySelector(".shadow");
+          var oBox =document.querySelector("#wrap");
+          console.log(oShadow);
+          console.log(oShadow.clientWidth);  
+
+          var num =0;
+        for(var i=0;i<oShadow.clientWidth;i++){
+            // oBox.onmousemove = function(){
+                  if(num<oShadow.clientWidth){
+                    num++;
+                    console.log(num);
+                    oShadow.style["background-position"]=num+"px "+"0";
+                    }else{
+                        i=0;
+                        num=0;
+                    }
+                }
+            }
+        //   }
+      </script>
+</body>
+</html>
